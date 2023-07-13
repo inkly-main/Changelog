@@ -1,7 +1,8 @@
 export default {
-  title: "Logspot - Opensource changelog template",
+  title: "Inkly Changelog",
   description:
-    "Logspot is an open source change log template made with Nuxt, Vue, and Tailwindcss.",
+    "Inkly is a tattoo app",
+    
   og: {
     title: "Logspot - Opensource changelog template",
     description:

@@ -19,7 +19,7 @@ defineProps({
 
 <template>
   <div
-    class="relative p-4 border-l-4 my-8 rounded-lg rounded-bl-sm alert"
+    class="relative p-4 my-8 border-l-4 rounded-lg rounded-bl-sm alert"
     :class="variant"
   >
     <span class="icon-container">

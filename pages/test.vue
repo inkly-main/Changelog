@@ -1,11 +1,11 @@
 <template>
-  <main class="flex bg-slate-100 relative">
+  <main class="relative flex bg-slate-100">
     <aside
-      class="border-r w-20 h-screen bg-slate-100 sticky top-0 flex flex-col items-center justify-between py-8 flex-shrink-0"
+      class="sticky top-0 flex flex-col items-center justify-between flex-shrink-0 w-20 h-screen py-8 border-r bg-slate-100"
     >
       <!-- Sample Logo  -->
       <svg
-        class="h-8 w-auto"
+        class="w-auto h-8"
         viewBox="0 0 50 39"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -23,41 +23,41 @@
       </svg>
       <!-- Sample Logo  -->
       <div class="space-y-8">
-        <icon name="fluent:channel-24-regular" class="h-6 w-6 text-sky-600" />
+        <icon name="fluent:channel-24-regular" class="w-6 h-6 text-sky-600" />
         <icon
           name="fluent:data-pie-24-regular"
-          class="h-6 w-6 text-slate-400"
+          class="w-6 h-6 text-slate-400"
         />
         <icon
           name="fluent:mail-inbox-24-regular"
-          class="h-6 w-6 text-slate-400"
+          class="w-6 h-6 text-slate-400"
         />
         <icon
           name="fluent:wallet-credit-card-24-regular"
-          class="h-6 w-6 text-slate-400"
+          class="w-6 h-6 text-slate-400"
         />
       </div>
       <div class="space-y-8">
         <button @click="sidebar = true" class="relative">
           <icon
             name="fluent:panel-right-28-filled"
-            class="h-6 w-6 text-slate-400"
+            class="w-6 h-6 text-slate-400"
           />
         </button>
         <div class="relative" ref="floatingWidget">
           <button @click="showChangelog = !showChangelog">
             <icon
               name="fluent:alert-badge-24-filled"
-              class="h-6 w-6 text-slate-400"
+              class="w-6 h-6 text-slate-400"
             />
           </button>
           <transition
-            enter-active-class="transition ease-out duration-100"
-            enter-from-class="transform opacity-0 scale-95"
-            enter-to-class="transform opacity-100 scale-100"
-            leave-active-class="transition ease-in duration-75"
-            leave-from-class="transform opacity-100 scale-100"
-            leave-to-class="transform opacity-0 scale-95"
+            enter-active-class="transition duration-100 ease-out"
+            enter-from-class="transform scale-95 opacity-0"
+            enter-to-class="transform scale-100 opacity-100"
+            leave-active-class="transition duration-75 ease-in"
+            leave-from-class="transform scale-100 opacity-100"
+            leave-to-class="transform scale-95 opacity-0"
           >
             <div
               v-if="showChangelog"
@@ -65,14 +65,14 @@
             >
               <div
                 v-if="!iframeLoaded"
-                class="h-full w-full flex items-center justify-center flex-col space-y-2 text-slate-700"
+                class="flex flex-col items-center justify-center w-full h-full space-y-2 text-slate-700"
               >
-                <base-spinner class="h-5 w-5" />
+                <base-spinner class="w-5 h-5" />
                 <p>Loading Feed</p>
               </div>
               <iframe
                 src="/widget"
-                class="h-full w-full"
+                class="w-full h-full"
                 :class="iframeLoaded ? 'opacity-100' : 'opacity-0'"
                 frameborder="0"
                 @load="iframeLoaded = true"
@@ -84,47 +84,47 @@
     </aside>
     <section class="flex-grow">
       <header
-        class="border-b p-4 flex items-center justify-between sticky top-0 bg-white"
+        class="sticky top-0 flex items-center justify-between p-4 bg-white border-b"
       >
         <div
-          class="flex w-full sm:w-1/2 p-3 items-center bg-slate-200 rounded-full"
+          class="flex items-center w-full p-3 rounded-full sm:w-1/2 bg-slate-200"
         >
-          <icon name="fluent:search-24-filled" class="h-4 w-4 text-slate-400" />
-          <p class="text-sm text-slate-400 ml-4 truncate">
+          <icon name="fluent:search-24-filled" class="w-4 h-4 text-slate-400" />
+          <p class="ml-4 text-sm truncate text-slate-400">
             Search your transactions, accounts, cards etc...
           </p>
         </div>
-        <div class="hidden sm:flex items-center space-x-2">
+        <div class="items-center hidden space-x-2 sm:flex">
           <div
-            class="rounded-full bg-slate-200 p-3 flex-shrink-0 h-12 w-12 flex items-center justify-center"
+            class="flex items-center justify-center flex-shrink-0 w-12 h-12 p-3 rounded-full bg-slate-200"
           >
             <icon
               name="fluent:alert-badge-24-filled"
-              class="h-5 w-5 text-slate-600"
+              class="w-5 h-5 text-slate-600"
             />
           </div>
           <div
-            class="rounded-full bg-slate-200 p-3 flex-shrink-0 h-12 w-12 flex items-center justify-center"
+            class="flex items-center justify-center flex-shrink-0 w-12 h-12 p-3 rounded-full bg-slate-200"
           >
             <icon
               name="fluent:person-24-filled"
-              class="h-5 w-5 text-slate-600"
+              class="w-5 h-5 text-slate-600"
             />
           </div>
         </div>
       </header>
       <div class="p-4">
         <div class="mt-4 space-y-8">
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-4">
             <div
-              class="h-40 rounded-lg bg-white border shadow-sm"
+              class="h-40 bg-white border rounded-lg shadow-sm"
               v-for="n in 4"
               :key="n"
             ></div>
           </div>
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
             <div
-              class="h-96 rounded-lg bg-white border shadow-sm"
+              class="bg-white border rounded-lg shadow-sm h-96"
               v-for="n in 4"
               :key="n"
             ></div>
@@ -133,7 +133,7 @@
       </div>
     </section>
     <test-sidebar v-if="sidebar" @close="sidebar = false" ref="overlayWidget" />
-    <test-arrow v-if="!showChangelog" class="fixed bottom-24 left-32 z-0" />
+    <test-arrow v-if="!showChangelog" class="fixed z-0 bottom-24 left-32" />
   </main>
 </template>
 
